@@ -5,10 +5,10 @@ import { IoStarSharp } from "react-icons/io5";
 import Productcart from "../Productcart/Productcart";
 const BASE_URL = "https://eda.yandex";
 const Middlebar = ({ products }) => {
-  console.log("products middlebar", products.categories[0].items[0].picture.uri);
+  // console.log("products middlebar", products.categories[0].items[0].picture.uri);
 
   return (
-    <div className="border-2 h-[95vh] overflow-y-scroll scroll-smooth">
+    <div id="food-body" className="h-[95vh] overflow-y-scroll scroll-smooth scrollbar-hidden">
       {/* banner */}
       <div className="rounded-[50px] overflow-hidden">
         <div

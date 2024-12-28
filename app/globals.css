@@ -19,3 +19,11 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+.scrollbar-hidden {
+  scrollbar-width: none;
+}
+html,
+body,
+.thin-scrollbar {
+  scrollbar-width: thin;
+}
