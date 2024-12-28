@@ -27,11 +27,11 @@ const useItemStore = create((set) => ({
 
   updateQuantity: (itemId, quantity) =>
     set((state) => {
-      const updatedOptions = state.selectedOptions.map((item) =>
-        item.itemId === itemId
-          ? { ...item, quantity: Math.max(1, quantity) } // Ensure quantity doesn't go below 1
-          : item
-      );
+      const updatedOptions = state.selectedOptions
+        .map((item) =>
+          item.itemId === itemId ? { ...item, quantity: Math.max(0, quantity) } : item
+        )
+        .filter((item) => item.quantity > 0);
       Cookies.set(COOKIE_KEY, JSON.stringify(updatedOptions), { expires: 7 });
       return { selectedOptions: updatedOptions };
     }),

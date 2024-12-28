@@ -93,7 +93,7 @@ const Rightsidebar = () => {
                       <div className="flex">
                         <button
                           onClick={() => updateQuantity(item.itemId, item.quantity - 1)}
-                          disabled={item.quantity <= 1}
+                          // disabled={item.quantity <= 1}
                           className="px-2 py-1 bg-[#f5f4f2] rounded-l-3xl"
                         >
                           -
