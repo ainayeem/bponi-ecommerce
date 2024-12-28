@@ -15,7 +15,7 @@ const Rightsidebar = () => {
     <>
       {/* for mobile */}
       <div className="2xl:hidden">
-        <div className="flex flex-col items-center justify-between space-y-2 w-full border px-2 pb-2">
+        <div className="flex flex-col items-center justify-between space-y-2 w-full px-2 pb-2">
           {/* Delivery info */}
           <div className="flex items-center space-x-2 w-full mt-2">
             <div className="flex items-center justify-between h-6 bg-gray-200 rounded-full">

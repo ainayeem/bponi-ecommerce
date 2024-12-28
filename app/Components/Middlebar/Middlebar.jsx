@@ -13,7 +13,7 @@ const Middlebar = ({ products }) => {
   return (
     <div id="food-body" className="h-[95vh] overflow-y-scroll scroll-smooth scrollbar-hidden">
       {/* banner */}
-      <div className="2xl:rounded-[50px] overflow-hidden">
+      <div className="2xl:rounded-[50px] 2xl:overflow-hidden">
         <div
           className=""
           style={{
@@ -77,28 +77,31 @@ const Middlebar = ({ products }) => {
           </div>
         </div>
       </div>
-      {/* free delivery */}
-      <div className="px-3 2xl:px-0">
-        <div className="group bg-[#e4f2dc] rounded-3xl flex items-center my-12">
-          <Image
-            src="/assets/images/free-delivery.png"
-            alt="Project Image"
-            className=""
-            width={70}
-            height={70}
-          />
+      {/* pertition */}
+      <div className="">
+        {/* free delivery */}
+        <div className="px-3 2xl:px-0">
+          <div className="group bg-[#e4f2dc] rounded-3xl flex items-center my-12">
+            <Image
+              src="/assets/images/free-delivery.png"
+              alt="Project Image"
+              className=""
+              width={70}
+              height={70}
+            />
 
-          <p className="text-[#81b465] text-xl">Free delivery – on any order</p>
+            <p className="text-[#81b465] text-xl">Free delivery – on any order</p>
 
-          {/* Small div that appears on hover */}
-          <div className="absolute top-20 left-1/2 transform -translate-x-1/2 p-6 bg-white rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <h1 className="text-2xl font-semibold">Free delivery</h1>
-            <p>on any order</p>
+            {/* Small div that appears on hover */}
+            <div className="absolute top-20 left-1/2 transform -translate-x-1/2 p-6 bg-white rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <h1 className="text-2xl font-semibold">Free delivery</h1>
+              <p>on any order</p>
+            </div>
           </div>
         </div>
+        {/* cart item */}
+        <Productcart products={products} />
       </div>
-      {/* cart item */}
-      <Productcart products={products} />
     </div>
   );
 };

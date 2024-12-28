@@ -59,7 +59,10 @@ const Homepage = () => {
         <Middlebar products={products} />
       </div>
       {/* cart */}
-      <div className="col-span-1 bg-white rounded-3xl 2xl:ml-8 2xl:mt-7 mx-3 py-2 max-h-[90vh]">
+      <div
+        className="col-span-1 bg-white rounded-3xl 2xl:ml-8 2xl:mt-7 2xl:mx-3 py-2
+       2xl:max-h-[90vh]"
+      >
         <Rightsidebar />
       </div>
     </div>

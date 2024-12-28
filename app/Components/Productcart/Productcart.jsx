@@ -20,14 +20,14 @@ const Productcart = ({ products }) => {
 
   return (
     <div>
-      <div className="mb-10">
+      <div className="mb-10 px-2 2xl:px-0">
         {products.categories.map((category) => (
           <div id={category.id} key={category.id} className="">
             {/* Category Header */}
             <h1 className="text-2xl font-bold my-4">{category.name}</h1>
 
             {/* render each category */}
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 px-3 2xl:px-0">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 2xl:px-0">
               {category.items.map((item) => {
                 // Find the selected item in the state
                 const selectedItem = selectedOptions.find(
