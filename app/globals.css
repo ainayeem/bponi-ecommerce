@@ -28,3 +28,9 @@ body,
   scrollbar-width: thin;
   scrollbar-color: #e4e4e4 transparent;
 }
+.btn-disabled,
+.btn[disabled],
+.btn:disabled {
+  background-color: #fdef7f;
+  color: #908f8f;
+}

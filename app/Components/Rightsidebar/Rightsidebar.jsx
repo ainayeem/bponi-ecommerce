@@ -4,7 +4,13 @@ import Image from "next/image";
 const Rightsidebar = () => {
   const selectedOptions = useItemStore((state) => state.selectedOptions);
   const clearSelectedOptions = useItemStore((state) => state.clearSelectedOptions);
-  console.log("rightsidebar", selectedOptions);
+  const updateQuantity = useItemStore((state) => state.updateQuantity);
+  // console.log("rightsidebar", selectedOptions);
+
+  const totalAmount = selectedOptions.reduce((total, item) => {
+    return total + item.price * item.quantity;
+  }, 0);
+
   return (
     <>
       {selectedOptions.length === 0 ? (
@@ -47,12 +53,15 @@ const Rightsidebar = () => {
                   </div>
                   <div className="col-span-2 flex items-center justify-between">
                     <div>
-                      <h2>{item.itemName}</h2>
+                      <h2>{item?.itemName}</h2>
                       {/*  */}
-                      {item.selectedData.map((group) => (
+                      {item.selectedData?.map((group) => (
                         <div key={group.groupId}>
                           {group.selectedOptions.map((option) => (
-                            <p key={option.optionId} className="text-[10px] text-gray-500">
+                            <p
+                              key={option.optionId}
+                              className="text-[10px] text-gray-500 leading-none"
+                            >
                               {option.optionName}
                             </p>
                           ))}
@@ -62,9 +71,20 @@ const Rightsidebar = () => {
                       <p>Price: {item.price} ₸</p>
                     </div>
                     <div className="flex">
-                      <button className="px-2 py-1 bg-gray-400 text-white rounded-l-3xl">-</button>
-                      <span className="px-2 py-1 bg-gray-400 text-white">1</span>
-                      <button className="px-2 py-1 bg-gray-400 text-white rounded-r-3xl">+</button>
+                      <button
+                        onClick={() => updateQuantity(item.itemId, item.quantity - 1)}
+                        disabled={item.quantity <= 1}
+                        className="px-2 py-1 bg-[#f5f4f2] rounded-l-3xl"
+                      >
+                        -
+                      </button>
+                      <span className="px-2 py-1 bg-[#f5f4f2]">{item.quantity || 1}</span>
+                      <button
+                        onClick={() => updateQuantity(item.itemId, (item.quantity || 1) + 1)}
+                        className="px-2 py-1 bg-[#f5f4f2] rounded-r-3xl"
+                      >
+                        +
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -92,7 +112,7 @@ const Rightsidebar = () => {
                 <button className="bg-yellow-400 text-black font-bold py-2 px-6 rounded-lg text-lg w-full">
                   <div className="flex justify-between items-center w-full">
                     <span>Next</span>
-                    <span>7 829 ₸</span>
+                    <span>{totalAmount} ₸</span>
                   </div>
                 </button>
               </div>

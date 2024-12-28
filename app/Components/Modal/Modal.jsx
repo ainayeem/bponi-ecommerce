@@ -119,13 +119,13 @@ const Modal = ({ selectedItem }) => {
       })),
     });
 
-    console.log("Saved data:", {
-      itemId: selectedItem.id,
-      itemName: selectedItem.name,
-      price: selectedItem.price,
-      image: selectedItem.image,
-      selectedData,
-    });
+    // console.log("Saved data:", {
+    //   itemId: selectedItem.id,
+    //   itemName: selectedItem.name,
+    //   price: selectedItem.price,
+    //   image: selectedItem.image,
+    //   selectedData,
+    // });
   };
 
   return (
@@ -133,7 +133,6 @@ const Modal = ({ selectedItem }) => {
       <dialog id="my_modal_4" className="modal" style={{ zIndex: 999 }}>
         <div className="modal-box max-w-7xl thin-scrollbar">
           <form method="dialog">
-            {/* if there is a button in form, it will close the modal */}
             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
           </form>
           <div className="flex gap-10">
@@ -149,10 +148,10 @@ const Modal = ({ selectedItem }) => {
               />
             </div>
             <div className="w-full">
-              <h1 className="font-bold text-4xl pb-4">
+              <h1 className="font-extrabold text-3xl pb-4">
                 {selectedItem ? selectedItem.name : "No Selected"}
               </h1>
-              <div className="flex gap-10">
+              <div className="flex gap-10 pb-5">
                 <h3 className="font-bold text-3xl pb-4">
                   {selectedItem ? selectedItem.price : "No Selected"} ₸
                 </h3>
@@ -169,7 +168,7 @@ const Modal = ({ selectedItem }) => {
                 {selectedItem.optionsGroups.map((group) => (
                   <div key={group.id}>
                     <div className="flex justify-between items-center border-t-2">
-                      <h2 className="font-semibold text-2xl pb-4">{group.name}</h2>
+                      <h2 className="text-xl py-4">{group.name}</h2>
                       <p className="text-red-500">
                         {group.maxSelected > 1 ? `Choose ${group.maxSelected}` : ""}
                       </p>
@@ -177,7 +176,7 @@ const Modal = ({ selectedItem }) => {
 
                     {group.options.map((option) => (
                       <div key={option.id} className="flex justify-between items-center">
-                        <p className="text-xl pb-4">{option.name}</p>
+                        <p className="text-base pb-4">{option.name}</p>
                         <div className="flex items-center">
                           {counterState[group.id]?.[option.id]?.enabled &&
                             group.maxSelected > 1 && (
@@ -218,7 +217,7 @@ const Modal = ({ selectedItem }) => {
                           ) : (
                             <input
                               type="radio"
-                              name={`radio-${group.id}`} // Unique name per group for radios
+                              name={`radio-${group.id}`}
                               className="radio radio-warning"
                               onChange={() => handleRadioChange(group.id, option.id)}
                             />
