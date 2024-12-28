@@ -4,7 +4,7 @@ import { FiGlobe } from "react-icons/fi";
 
 const Navbar = () => {
   return (
-    <div className="flex justify-between items-center border-b-2 fixed top-0 right-0 left-0 px-4 z-10 bg-[#f5f4f2]">
+    <div className="2xl:flex justify-between items-center border-b-2 2xl:fixed top-0 right-0 left-0 px-4 z-10 bg-[#f5f4f2] hidden ">
       <div className="flex gap-4 items-center py-3">
         <div>
           <Image

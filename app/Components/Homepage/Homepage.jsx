@@ -51,15 +51,15 @@ const Homepage = () => {
     );
   }
   return (
-    <div className="grid grid-cols-5 mx-24 pt-2">
-      <div className="col-span-1 pt-7">
+    <div className="2xl:grid 2xl:grid-cols-5 2xl:mx-24 2xl:pt-2 gap-5">
+      <div className="col-span-1 2xl:pt-7 2xl:block hidden">
         <Liftsidebar products={products} />
       </div>
-      <div className="col-span-3 pt-7">
+      <div className="col-span-3 2xl:pt-7">
         <Middlebar products={products} />
       </div>
       {/* cart */}
-      <div className="col-span-1 bg-white rounded-3xl ml-8 mt-7 max-h-[90vh]">
+      <div className="col-span-1 bg-white rounded-3xl 2xl:ml-8 2xl:mt-7 mx-3 py-2 max-h-[90vh]">
         <Rightsidebar />
       </div>
     </div>

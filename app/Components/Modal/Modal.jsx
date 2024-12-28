@@ -135,7 +135,7 @@ const Modal = ({ selectedItem }) => {
           <form method="dialog">
             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
           </form>
-          <div className="flex gap-10">
+          <div className="flex 2xl:gap-10">
             <div>
               <Image
                 src={`${BASE_URL}${selectedItem?.picture.uri
@@ -148,11 +148,11 @@ const Modal = ({ selectedItem }) => {
               />
             </div>
             <div className="w-full">
-              <h1 className="font-extrabold text-3xl pb-4">
+              <h1 className="font-extrabold 2xl:text-3xl pb-4">
                 {selectedItem ? selectedItem.name : "No Selected"}
               </h1>
               <div className="flex gap-10 pb-5">
-                <h3 className="font-bold text-3xl pb-4">
+                <h3 className="font-bold 2xl:text-3xl pb-4">
                   {selectedItem ? selectedItem.price : "No Selected"} ₸
                 </h3>
                 <button
@@ -168,7 +168,7 @@ const Modal = ({ selectedItem }) => {
                 {selectedItem.optionsGroups.map((group) => (
                   <div key={group.id}>
                     <div className="flex justify-between items-center border-t-2">
-                      <h2 className="text-xl py-4">{group.name}</h2>
+                      <h2 className="2xl:text-xl text-lg py-4">{group.name}</h2>
                       <p className="text-red-500">
                         {group.maxSelected > 1 ? `Choose ${group.maxSelected}` : ""}
                       </p>
@@ -176,7 +176,7 @@ const Modal = ({ selectedItem }) => {
 
                     {group.options.map((option) => (
                       <div key={option.id} className="flex justify-between items-center">
-                        <p className="text-base pb-4">{option.name}</p>
+                        <p className="2xl:text-base pb-4">{option.name}</p>
                         <div className="flex items-center">
                           {counterState[group.id]?.[option.id]?.enabled &&
                             group.maxSelected > 1 && (

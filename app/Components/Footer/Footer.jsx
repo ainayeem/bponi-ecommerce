@@ -4,8 +4,8 @@ import { GoMail } from "react-icons/go";
 
 const Footer = () => {
   return (
-    <div className="bg-white">
-      <div className="max-w-screen-lg mx-auto">
+    <div className="bg-white hidden 2xl:block">
+      <div className="2xl:max-w-screen-lg 2xl:mx-auto">
         <div className="my-20">
           <p className="text-xl font-semibold mb-8 pt-20">Even easier in the app</p>
           <div className="flex gap-5">
@@ -21,7 +21,7 @@ const Footer = () => {
         <hr />
         <div className="my-20 flex items-center justify-center">
           <div></div>
-          <div>
+          <div className="">
             <p className="text-lg font-semibold text-gray-500 mb-8">Company information</p>
             <div className="flex gap-10 mb-8">
               <Link href="" className="text-sm text-gray-400">

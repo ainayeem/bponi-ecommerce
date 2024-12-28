@@ -1,6 +1,9 @@
 "use client";
 import Image from "next/image";
+import { CiBookmark } from "react-icons/ci";
+import { FaArrowLeft } from "react-icons/fa";
 import { GiFoodTruck, GiInfo } from "react-icons/gi";
+import { IoIosSearch } from "react-icons/io";
 import { IoStarSharp } from "react-icons/io5";
 import Productcart from "../Productcart/Productcart";
 const BASE_URL = "https://eda.yandex";
@@ -10,9 +13,9 @@ const Middlebar = ({ products }) => {
   return (
     <div id="food-body" className="h-[95vh] overflow-y-scroll scroll-smooth scrollbar-hidden">
       {/* banner */}
-      <div className="rounded-[50px] overflow-hidden">
+      <div className="2xl:rounded-[50px] overflow-hidden">
         <div
-          className="border"
+          className=""
           style={{
             backgroundImage: `url('https://eda.yandex/images/3378693/049e8232c93c3ce2b19dc94a1da9ba26-1100x825.jpg')`,
             backgroundSize: "cover",
@@ -20,13 +23,30 @@ const Middlebar = ({ products }) => {
           }}
         >
           <div
-            className="pt-44 pb-12 px-12"
+            className="2xl:pt-44 pt-8 pb-12 px-12"
             style={{
               background: "linear-gradient(231.36deg, rgba(26, 0, 0, 0) 35.77%, #1A0000 90.7%)",
               opacity: 0.66,
             }}
           >
-            <h1 className="text-white text-5xl font-semibold my-5">KFC Dostyk Plaza</h1>
+            <div className="2xl:hidden flex justify-between pb-6">
+              <div className="bg-white rounded-full p-2">
+                <FaArrowLeft />
+              </div>
+              <div className="">
+                <div className="flex gap-2">
+                  <span className="bg-white rounded-full p-2">
+                    <CiBookmark />
+                  </span>
+                  <span className="bg-white rounded-full p-2">
+                    <IoIosSearch />
+                  </span>
+                </div>
+              </div>
+            </div>
+            <h1 className="text-white 2xl:text-5xl text-3xl font-semibold my-5">
+              KFC Dostyk Plaza
+            </h1>
             <div className="flex gap-4">
               <div className="bg-[rgba(255,255,255,1)] rounded-xl flex text-black text-2xl gap-3 px-4 items-center">
                 <span>
@@ -58,8 +78,8 @@ const Middlebar = ({ products }) => {
         </div>
       </div>
       {/* free delivery */}
-      <div>
-        <div className="relative group bg-[#e4f2dc] rounded-3xl flex items-center my-12">
+      <div className="px-3 2xl:px-0">
+        <div className="group bg-[#e4f2dc] rounded-3xl flex items-center my-12">
           <Image
             src="/assets/images/free-delivery.png"
             alt="Project Image"
