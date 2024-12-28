@@ -59,7 +59,7 @@ const Homepage = () => {
         <Middlebar products={products} />
       </div>
       {/* cart */}
-      <div className="col-span-1 bg-white rounded-3xl ml-8 mt-7">
+      <div className="col-span-1 bg-white rounded-3xl ml-8 mt-7 max-h-[90vh]">
         <Rightsidebar />
       </div>
     </div>

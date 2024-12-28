@@ -3,57 +3,104 @@ import Image from "next/image";
 
 const Rightsidebar = () => {
   const selectedOptions = useItemStore((state) => state.selectedOptions);
-  const clearCart = useItemStore((state) => state.clearCart);
+  const clearSelectedOptions = useItemStore((state) => state.clearSelectedOptions);
   console.log("rightsidebar", selectedOptions);
   return (
-    <div className="">
-      <div className="px-5 py-8">
-        <div className="flex justify-between">
+    <>
+      {selectedOptions.length === 0 ? (
+        <div className="px-5 py-8 h-full">
           <h1>Cart</h1>
-          <button onClick={clearCart}>Clear</button>
+          <div className="flex flex-col items-center justify-center h-full">
+            <Image
+              src="/assets/images/no-item.svg"
+              alt="Project Image"
+              className=""
+              width={70}
+              height={70}
+            />
+            <p
+              className="
+            "
+            >
+              Your cart is currently empty
+            </p>
+          </div>
         </div>
-        {selectedOptions.map((item) => (
-          <div key={item.itemId} className="grid grid-cols-3 justify-between mb-4 ">
-            <div className="col-span-1">
-              <Image
-                src={item.image}
-                alt={item.itemName}
-                width={70}
-                height={70}
-                className="rounded"
-              />
+      ) : (
+        <div className="flex flex-col justify-between h-full">
+          <div className="px-5 py-8">
+            <div className="flex justify-between">
+              <h1 className="font-semibold text-2xl">Cart</h1>
+              <button onClick={clearSelectedOptions}>Clear</button>
             </div>
-            <div className="col-span-2 flex items-center justify-between">
-              <div>
-                <h2>{item.itemName}</h2>
-                {/*  */}
-                {item.selectedData.map((group) => (
-                  <div key={group.groupId}>
-                    {group.selectedOptions.map((option) => (
-                      <p key={option.optionId} className="text-[10px] text-gray-500">
-                        {option.optionName}
-                      </p>
-                    ))}
+            <div className="h-[70vh] overflow-y-scroll thin-scrollbar">
+              {selectedOptions.map((item) => (
+                <div key={item.itemId} className="grid grid-cols-3 justify-between mb-4 ">
+                  <div className="col-span-1">
+                    <Image
+                      src={item.image}
+                      alt={item.itemName}
+                      width={70}
+                      height={70}
+                      className="rounded"
+                    />
                   </div>
-                ))}
-                {/*  */}
-                <p>Price: {item.price} ₸</p>
+                  <div className="col-span-2 flex items-center justify-between">
+                    <div>
+                      <h2>{item.itemName}</h2>
+                      {/*  */}
+                      {item.selectedData.map((group) => (
+                        <div key={group.groupId}>
+                          {group.selectedOptions.map((option) => (
+                            <p key={option.optionId} className="text-[10px] text-gray-500">
+                              {option.optionName}
+                            </p>
+                          ))}
+                        </div>
+                      ))}
+                      {/*  */}
+                      <p>Price: {item.price} ₸</p>
+                    </div>
+                    <div className="flex">
+                      <button className="px-2 py-1 bg-gray-400 text-white rounded-l-3xl">-</button>
+                      <span className="px-2 py-1 bg-gray-400 text-white">1</span>
+                      <button className="px-2 py-1 bg-gray-400 text-white rounded-r-3xl">+</button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+              <hr />
+              <div className="flex justify-between mt-">
+                <p>Service fee</p>
+                <p>115 ₸</p>
               </div>
-              <div className="flex">
-                <button className="px-2 py-1 bg-gray-400 text-white rounded-l-3xl">-</button>
-                <span className="px-2 py-1 bg-gray-400 text-white">1</span>
-                <button className="px-2 py-1 bg-gray-400 text-white rounded-r-3xl">+</button>
+            </div>
+            <div className="">
+              <hr />
+              <div className="flex flex-col items-center justify-between space-y-2 w-full">
+                {/* Delivery info */}
+                <div className="flex items-center space-x-2 w-full mt-3">
+                  <div className="flex items-center justify-between h-6 bg-gray-200 rounded-full">
+                    <span>🚶</span>
+                  </div>
+                  <div className="text-green-500 font-medium text-sm">
+                    Delivery 0 ₸ <span className="text-gray-400 line-through">174 ₸</span>
+                  </div>
+                </div>
+
+                {/* Next button */}
+                <button className="bg-yellow-400 text-black font-bold py-2 px-6 rounded-lg text-lg w-full">
+                  <div className="flex justify-between items-center w-full">
+                    <span>Next</span>
+                    <span>7 829 ₸</span>
+                  </div>
+                </button>
               </div>
             </div>
           </div>
-        ))}
-        <hr />
-        <div className="flex justify-between mt-">
-          <p>Service fee</p>
-          <p>115 ₸</p>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 
